@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Autor>
+
+<a class="btn btn-success mt-5" style="margin: 10px" asp-controller="Autor" asp-action="Create">Cadastrar Autor</a>
+
+<div class="row">
+    @foreach (var autor in Model)
+    {
+        //@Html.Partial("Views/Shared/AutorParcial", autor) //Recomendado na aula
+        @await Html.PartialAsync("AutorParcial", autor) //Alternativa porque n reconhecia a primeira opção
+   }
+    </div>

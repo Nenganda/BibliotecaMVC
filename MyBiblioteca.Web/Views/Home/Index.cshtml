@@ -1,0 +1,39 @@
+﻿@model HomeViewModel
+@{
+    int avaliarLivros = Model.LivroQuantidade - Model.EmprestimoQuantidade;
+}
+
+<h1>Dashboard - Biblioteca</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Quantidade de Cliente
+            </div>
+            <div class="panel-body">
+                Tem @Model.ClienteQuantidade Clientes
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Quantidade de Autor
+            </div>
+            <div class="panel-body">
+                Tem @Model.AutorQuantidade Autores
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Quantidade de Livro
+            </div>
+            <div class="panel-body">
+                Temos @avaliarLivros Livros disponíveis @Model.LivroQuantidade Livros
+            </div>
+        </div>
+    </div>
+</div>

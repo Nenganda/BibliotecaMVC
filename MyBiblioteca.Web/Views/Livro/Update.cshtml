@@ -1,0 +1,31 @@
+﻿@model LivroViewModel
+
+<div class="row orderForm">
+
+    <form asp-controller="Livro" asp-action="Update" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Alterar Livro</h3>
+        @Html.HiddenFor(m => Model.Livro.LivroId)
+        <div class="form-group">
+            <label asp-for="Livro.Autor" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+
+                @Html.DropDownListFor(m => m.Livro.AutorId,
+                                                  new SelectList(Model.Autores.Select(x => new { Value = x.AutorId, Text = x.Descricao }), "Value", "Text"),
+                                                  htmlAttributes: new { @class = "form-control border-input" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Livro.Titulo" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Livro.Titulo" class="form-control" placeholder="Digite o Título" />
+                <span asp-validation-for="Livro.Titulo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-default" type="submit" value="Voltar" asp-controller="Livro" asp-action="List" />
+                <input class="btn btn-success" type="submit" value="Actualizar" />
+            </div>
+        </div>
+    </form>
+</div>

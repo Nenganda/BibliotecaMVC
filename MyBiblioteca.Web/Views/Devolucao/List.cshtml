@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Livro>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Autores</th>
+            <th>Mutuária</th>
+            <th>Devolução</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Livro livro in Model)
+        {
+            <tr>
+                <td>@livro.LivroId</td>
+                <td>@livro.Titulo</td>
+                <td>@livro.Autor.Descricao</td>
+                <td>@livro.Mutuaria.Descricao</td>
+                <td><a class="btn btn-success" asp-area="" asp-controller="Devolucao" asp-action="DevolucaoDoLivro" asp-route-livroId="@livro.LivroId">Devolução</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

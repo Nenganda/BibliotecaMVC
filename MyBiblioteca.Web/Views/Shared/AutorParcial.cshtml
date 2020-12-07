@@ -1,0 +1,24 @@
+﻿@model Autor
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <p>@Model.Descricao</p>
+        </div>
+        <div class="panel-body">
+            <h2>Quantidade de Livro: @Model.Livros?.Count</h2>
+            <div class="btn-group">
+                @if (Model.Livros?.Count == 0)
+                {
+                    <a class="btn btn-default" asp-area="">Ver a Lista de Livros</a>
+                }
+                else
+                {
+                    <a class="btn btn-info" asp-area="" asp-controller="Livro" asp-action="List" asp-route-autorId="@Model.AutorId">Ver a Lista de Livro</a>
+                }
+                <a class="btn btn-info" asp-area="" asp-controller="Autor" asp-action="Update" asp-route-id="@Model.AutorId">Edit</a>
+                <a class="btn btn-danger" asp-area="" asp-controller="Autor" asp-action="Delete" asp-route-id="@Model.AutorId">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
